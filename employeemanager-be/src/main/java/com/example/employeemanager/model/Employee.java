@@ -21,6 +21,8 @@ public class Employee implements Serializable {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
+    @Column(name = "job_title")
+    private String jobTitle;
     @Column(name = "email")
     private String email;
     @Column(name = "phone")

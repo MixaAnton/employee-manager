@@ -6,6 +6,7 @@ import com.example.employeemanager.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.List;
 
@@ -35,14 +36,26 @@ public class EmployeeService {
     {
         Employee updateEmployee = employeeRepository.findEmployeeById(id)
                 .orElseThrow(()->new UserNotFoundExeption("User with id: "+id+"not exist"));
-        updateEmployee.setFirstName(employee.getFirstName());
+        if(employee.getFirstName()!=null && !employee.getFirstName().isEmpty()) {
+            updateEmployee.setFirstName(employee.getFirstName());
+        }
+        if(employee.getLastName()!=null && !employee.getLastName().isEmpty()){
         updateEmployee.setLastName(employee.getLastName());
+        }
+        if(employee.getEmail()!=null && !employee.getEmail().isEmpty()){
         updateEmployee.setEmail(employee.getEmail());
+        }
+        if(employee.getPhone()!=null && !employee.getPhone().isEmpty())
+        {
         updateEmployee.setPhone(employee.getPhone());
+        }
+        if(employee.getImageUrl()!=null && !employee.getImageUrl().isEmpty()){
         updateEmployee.setImageUrl(employee.getImageUrl());
+        }
 
         return updateEmployee;
     }
+    @Transactional
     public void deleteEmployee(Long id)
     {
          employeeRepository.deleteEmployeeById(id);
