@@ -12,6 +12,15 @@ export class EmployeeUpdateComponent implements OnInit {
 
   id:number;
   employee:Employee;
+
+  listOfImageUrls=[
+    "https://bootdey.com/img/Content/avatar/avatar1.png",
+    "https://bootdey.com/img/Content/avatar/avatar2.png",
+    "https://bootdey.com/img/Content/avatar/avatar3.png",
+    "https://bootdey.com/img/Content/avatar/avatar4.png",
+    "https://bootdey.com/img/Content/avatar/avatar5.png"
+
+  ]
   constructor(private service:EmployeeService,private router :Router,private route :ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -19,12 +28,7 @@ export class EmployeeUpdateComponent implements OnInit {
     this.service.getEmployeeById(this.id).subscribe(
       response=>{
         this.employee=response;
-      },
-      error=>{
-        alert("Can't read response!");
       }
-      
-      
     )
   }
 
@@ -32,9 +36,6 @@ export class EmployeeUpdateComponent implements OnInit {
     this.service.updateEmployee(this.id,this.employee).subscribe(
       response=>{
         this.router.navigate(['/employees'])
-      },
-      erorr=>{
-        alert("Can't update employee!");
       }
     )
   }

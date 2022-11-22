@@ -13,7 +13,9 @@
             <label for="phone">Phone:</label>
             <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="employee.phone"> 
             <label for="imageUrl">Image Url:</label>
-            <input type="text" class="form-control" id="imageUrl" name="imageUrl" [(ngModel)]="employee.imageUrl"> 
+            <select class="form-control" name ="imageUrl" [(ngModel)]="employee.imageUrl" required>
+                <option *ngFor="let img of listOfImageUrls" [ngValue]="img">{{img}}</option>
+            </select>
             <br>
             <button class="btn btn-success" type="submit">Submit</button>
         </div>

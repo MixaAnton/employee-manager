@@ -11,6 +11,14 @@ import { EmployeeService } from '../employee.service';
 export class EmployeeCreateComponent implements OnInit {
   
   employee :Employee = new Employee();
+  listOfImageUrls=[
+    "https://bootdey.com/img/Content/avatar/avatar1.png",
+    "https://bootdey.com/img/Content/avatar/avatar2.png",
+    "https://bootdey.com/img/Content/avatar/avatar3.png",
+    "https://bootdey.com/img/Content/avatar/avatar4.png",
+    "https://bootdey.com/img/Content/avatar/avatar5.png"
+
+  ]
   constructor(private service:EmployeeService,private router:Router) { }
 
   ngOnInit(): void {
@@ -20,9 +28,6 @@ export class EmployeeCreateComponent implements OnInit {
     this.service.addEmployee(this.employee).subscribe(response=>
       {
         this.router.navigate(['/employees']);
-      },
-      error=>{
-        alert("Can't create employee!");
       })
   };
 
