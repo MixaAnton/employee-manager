@@ -1,1 +1,21 @@
-<p>employee-update works!</p>
+<div class="col-md-6 offset-md-3">
+    <h1>Update Employee </h1>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="employee.firstName"> 
+            <label for="lastName">Last name:</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="employee.lastName"> 
+            <label for="jobTitle">Jobtitle:</label>
+            <input type="text" class="form-control" id="jobTitle" name="jobTitle" [(ngModel)]="employee.jobTitle"> 
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="employee.email"> 
+            <label for="phone">Phone:</label>
+            <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="employee.phone"> 
+            <label for="imageUrl">Image Url:</label>
+            <input type="text" class="form-control" id="imageUrl" name="imageUrl" [(ngModel)]="employee.imageUrl"> 
+            <br>
+            <button class="btn btn-success" type="submit">Submit</button>
+        </div>
+    </form>
+</div>

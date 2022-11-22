@@ -5,19 +5,26 @@ import {HttpClientModule} from '@angular/common/http'
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 import { EmployeeUpdateComponent } from './employee-update/employee-update.component';
+import { EmployeeService } from './employee.service';
+import { AppRoutingModule } from './app-routing.module';
+import { EmployeeOverviewComponent } from './employee-overview/employee-overview.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HttpClientModule,
     EmployeeListComponent,
     EmployeeCreateComponent,
-    EmployeeUpdateComponent
+    EmployeeUpdateComponent,
+    EmployeeOverviewComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
