@@ -1,1 +1,74 @@
-<p>employee-overview works!</p>
+
+<div class="container bootstrap snippets bootdey mt-5" *ngIf="employee">
+    <div class="panel-body inf-content">
+        <div class="row">
+            <div class="col-md-4">
+                <img alt="Image is not loaded" style="width:600px;" class="rounded-circle img-thumbnail isTooltip" src="{{employee.imageUrl}}" data-original-title="Usuario"> 
+            </div>
+            <div class="col-md-6">
+                <strong>Information</strong><br>
+                <div class="table-responsive">
+                <table class="table table-user-information">
+                    <tbody>
+                        <tr>    
+                            <td>
+                                <strong> 
+                                    <i class="bi bi-person-fill"></i> 
+                                    Firstname:                                               
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                {{employee.firstName}}     
+                            </td>
+                        </tr>
+                        <tr>        
+                            <td>
+                                <strong>
+                                    <i class="bi bi-person-vcard"></i> 
+                                    Lastname:                                                
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                {{employee.lastName}}  
+                            </td>
+                        </tr>
+                        <tr>        
+                            <td>
+                                <strong>
+                                    <i class="bi bi-briefcase-fill"></i>
+                                    Jobtitle                                                
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                {{employee.jobTitle}}
+                            </td>
+                        </tr>
+                        <tr>        
+                            <td>
+                                <strong>
+                                    <i class="bi bi-envelope-fill"></i>
+                                    Email:                                                
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                 {{employee.email}} 
+                            </td>
+                        </tr>
+                        <tr>        
+                            <td>
+                                <strong>
+                                    <i class="bi bi-telephone-fill"></i>
+                                    Phone:                                                
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                {{employee.phone}}
+                            </td>
+                        </tr>                      
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>                                        
