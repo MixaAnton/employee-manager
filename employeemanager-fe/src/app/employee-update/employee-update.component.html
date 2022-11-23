@@ -1,6 +1,6 @@
 <div class="col-md-6 offset-md-3">
     <h1>Update Employee </h1>
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit()" *ngIf="employee">
         <div class="form-group">
             <label for="firstName">Firstname:</label>
             <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="employee.firstName"> 
@@ -17,7 +17,7 @@
                 <option *ngFor="let img of listOfImageUrls" [ngValue]="img">{{img}}</option>
             </select>
             <br>
-            <button class="btn btn-success" type="submit">Submit</button>
+            <button class="btn btn-success" type="submit">Update</button>
         </div>
     </form>
 </div>

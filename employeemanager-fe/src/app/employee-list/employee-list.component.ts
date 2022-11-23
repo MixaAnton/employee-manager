@@ -11,12 +11,10 @@ import { EmployeeService } from '../employee.service';
 export class EmployeeListComponent implements OnInit {
 
   employees:Employee[];
-  employeesIsLoading=false;
   constructor(private service:EmployeeService,private router:Router) { }
   
   ngOnInit(): void {
     this.getAllEmployees();
-    this.employeesIsLoading=false;
   }
 
   getAllEmployees()
@@ -26,7 +24,6 @@ export class EmployeeListComponent implements OnInit {
           this.employees=response;
         }
       );
-      this.employeesIsLoading=true;
   }
 
   updateEmployee(id:number)

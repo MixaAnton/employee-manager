@@ -27,10 +27,10 @@ export class EmployeeService {
 
   public updateEmployee(id:number,employee:Employee):Observable<Employee>
   {
-    return this.http.put<Employee>(`${this.serverUrl}/update/${id}`,employee);
+    return this.http.put<Employee>(`${this.serverUrl}/update/${id}`, employee);
   }
-  public deleteEmployee(id:number):Observable<string>
+  public deleteEmployee(id:number)
   {
-    return this.http.delete<string>(`${this.serverUrl}/delete/${id}`);
+    return this.http.delete(`${this.serverUrl}/delete/${id}`);
   }
 }

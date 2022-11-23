@@ -1,1 +1,26 @@
 
+<div class="container mt-3" >
+    <div class="row">
+        <div class="col-md-6 col-xl-3 mt-3" *ngFor="let employee of employees">
+            <div class="card m-b-30">
+                <div class="card-body row">
+                    <div class="col-6">
+                        <img src="{{employee?.imageUrl}}" alt="Image " class="img-fluid rounded-circle w-60">
+                    </div>
+                    <div class="col-6 card-title align-self-center mb-0">
+                        <h5>{{employee?.firstName}} {{employee?.lastName}}</h5>
+                        <p class="m-0">{{employee?.jobTitle}}</p>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="bi bi-envelope-fill "></i>Email : <a href="#">{{employee.email}}</a></li>
+                    <li class="list-group-item"><i class="bi bi-telephone-fill "></i>Phone : {{employee.phone}}</li>
+                </ul>
+                <div class="card-body">
+                    <div class="float-right btn-group btn-group-sm">
+                        <a (click)="showEmployeeOverviw(employee.id)" class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip" title="View"><i class="bi bi-eye-fill"></i> </a>
+                        <a (click)="updateEmployee(employee.id)" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip" title="Edit"><i class="bi bi-pencil-fill"></i> </a>
+                        <a (click)="deleteEmployee(employee.id)" class="btn btn-danger tooltips" data-placement="top" data-toggle="tooltip" title="Delete"><i class="bi bi-trash-fill"></i></a>
+                    </div>
+                </div>
+</div>

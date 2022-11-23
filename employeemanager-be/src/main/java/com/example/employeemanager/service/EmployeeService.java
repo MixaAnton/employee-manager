@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class EmployeeService {
 
     EmployeeRepository employeeRepository;
@@ -34,7 +35,7 @@ public class EmployeeService {
     public Employee updateEmployee(Long id,Employee employee)
     {
         Employee updateEmployee = employeeRepository.findEmployeeById(id)
-                .orElseThrow(()->new UserNotFoundExeption("User with id: "+id+"not exist"));
+                .orElseThrow(()->new UserNotFoundExeption("User with id: "+id+" not exist"));
         if(employee.getFirstName()!=null && !employee.getFirstName().isEmpty()) {
             updateEmployee.setFirstName(employee.getFirstName());
         }
@@ -52,9 +53,8 @@ public class EmployeeService {
         updateEmployee.setImageUrl(employee.getImageUrl());
         }
 
-        return updateEmployee;
+        return employeeRepository.save(updateEmployee);
     }
-    @Transactional
     public void deleteEmployee(Long id)
     {
          employeeRepository.deleteEmployeeById(id);
